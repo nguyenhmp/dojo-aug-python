@@ -9,7 +9,7 @@ class Underscore(object):
 	def reduce(self, lis, func, memo = 0):
 		memo = memo
 		for val in lis:
-			memo += func(val)
+			memo = func(val, memo)
 		return memo
 	def find(self, lis, cond):
 		for val in lis:
