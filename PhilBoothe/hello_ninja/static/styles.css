@@ -1,0 +1,26 @@
+ul {
+	font-family: sans-serif;
+}
+ul ul li {
+	color: red;
+}
+h1, legend {
+	font-family: cursive;
+}
+form {
+	display: inline-block;
+	width: 320px;
+	margin: 40px;
+}
+fieldset {
+	padding: 20px;
+	text-align: right;
+}
+form legend {
+	text-align: center;
+	font-size: 22px;
+	font-weight: bold;
+}
+form input {
+	margin: 6px 2px;
+}
