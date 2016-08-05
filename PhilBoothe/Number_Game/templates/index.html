@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" >
+	<title>The Great Number Game</title>
+	<style type="text/css">
+		* {
+			text-align: center;
+			margin: 10px;
+		}
+		.wrong {
+			display: inline-block;
+			border: 1px solid black;
+			background-color: darkred;
+			color: white;
+			padding: 50px 30px;
+			width: 150px;
+		}
+		#match {
+			display: inline-block;
+			border: 1px solid black;
+			background-color: blue;
+			color: white;
+			padding: 40px 30px;
+			width: 150px;
+		}
+		#match input {
+			margin-top: 40px;
+		}
+	</style>
+</head>
+<body>
+	<h1>Great Number Game</h1>
+	<p>I'm thinking of a number between 1 and 100...</p>
+	{% if session['guess'] == '' %}
+	<form action="/check" method="post">
+		<input  type="text" name="guess" /><br />
+		<input type="submit" value="Submit"/>
+	</form>
+	{% elif session['guess'] == session['secretnum'] %}
+	<div id='match'>
+		<h2>Nailed It!</h2>
+		<form action="/refresh" method="post">
+			<input type="submit" value="Try Again">
+		</form>
+	</div>
+	{% elif session['guess'] < session['secretnum'] %}
+	<div class='wrong'>
+		<h2>Too Low!</h2>
+	</div>
+	<form action="/check" method="post">
+		<input  type="text" name="guess" /><br />
+		<input type="submit" value="Submit"/>
+	</form>
+	{% elif session['guess'] > session['secretnum'] %}
+	<div class='wrong'>
+		<h2>Too High!</h2>
+	</div>
+	<form action="/check" method="post">
+		<input  type="text" name="guess" /><br />
+		<input type="submit" value="Submit"/>
+	</form>
+	{% else %}
+	<form action="/check" method="post">
+		<input  type="text" name="guess" /><br />
+		<input type="submit" value="Submit"/>
+	</form>
+	{% endif %}
+</body>
+</html>
