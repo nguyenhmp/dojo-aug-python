@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}" />
+	<title>Survey Result</title>
+</head>
+<body>
+	<h2>Thank you for your participation!</h2>
+	<h4>Please confirm your answers below.</h4>
+	{% with messages = get_flashed_messages() %}
+		{% if messages %}
+			{% for message in messages %}
+				<p class="error">{{message}}</p>
+			{% endfor %}
+		{% else %}
+			<p class="confirmation">Thank you for your feedback!</p>
+			<table>
+				<tr>
+					<th>Full Name:</th>
+					<td>{{ session['name'] }}</td>
+				</tr>
+				<tr>
+					<th>Location:</th>
+					<td>{{ session['location'] }}</td>
+				</tr>
+				<tr>
+					<th>Language:</th>
+					<td>{{ session['language'] }}</td>
+				</tr>
+				<tr>
+					<th>Comment:</th>
+					<td>{{ session['comment'] }}</td>
+				</tr>
+			</table>
+		{% endif %}
+	{% endwith %}
+	<form action="/reset" method="post">
+		<input type="submit" value="Go Back" />
+	</form>
+</body>
+</html>

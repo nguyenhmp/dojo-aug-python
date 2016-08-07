@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}" />
+	<title>Student Feedback Survey</title>
+</head>
+<body>
+	<form action='/results' method='post'>
+		<fieldset>
+			<legend>Tell Us About Yourself</legend>
+			<p>Full Name: <input type="text" name="name" /></p>
+			<p>Dojo Location:
+			<select name="location">
+				<option value="San Jose">San Jose</option>
+				<option value="Seattle">Seattle</option>
+				<option value="Washington">Washington</option>
+				<option value="Chicago">Chicago</option>
+			</select></p>
+			<p>Fav Language:  
+			<select name="language">
+				<option value="JavaScript">JavaScript</option>
+				<option value="Python">Python</option>
+				<option value="PHP">PHP</option>
+				<option value="Ruby">Ruby</option>
+			</select></p>
+			<p>Comment:
+			<textarea name="comment" placeholder="(120 char max)"></textarea></p>
+			<input type="submit" value='Submit' />
+		</fieldset>
+	</form>
+</body>
+</html>
