@@ -17,10 +17,13 @@ def create_student():
   		flash('{}'.format(name))
   	location = request.form['location']
   	language = request.form['language']
-  	if request.form['comment']:
-  		comment = request.form['comment']
+  	comment = request.form['comment']
+  	if len(comment) < 1:
+  		flash('Comment cannot be blank!')
+  	elif len(comment)> 120:
+  		flash('Comment cannot be more than 120 characters!')
   	else:
-  		comment = None
+  		flash('{}'.format(comment))
   	print name
   	print location
   	print language

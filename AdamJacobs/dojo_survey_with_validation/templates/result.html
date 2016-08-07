@@ -10,7 +10,7 @@
 		<p>Name:
 		{% with messages = get_flashed_messages() %}
 			{% if messages %}
-				{% for message in messages %}
+				{% for message in messages[:1] %}
 					{% if message == 'Name cannot be empty!' %}
 						<span>{{message}}</span>
 					{% else %}
@@ -22,7 +22,21 @@
 		</p>
 		<p>Location: {{ location }}</p>
 		<p>Language: {{ language }}</p>
-		<p>Comment: {{ comment }}</p>
+		<p>Comment: 
+		{% with messages = get_flashed_messages() %}
+			{% if messages %}
+				{% for message in messages[1:] %}
+					{% if message == 'Comment cannot be blank!' %}
+						<span>{{message}}</span>
+					{% elif message == 'Comment cannot be more than 120 characters!' %}
+						<span>{{message}}</span>
+					{% else %}
+						{{message}}
+					{% endif %}
+				{% endfor%}
+			{% endif %}
+		{% endwith %}
+		</p>
 		<h4><a href='/'>Go back</a></h4>
 	</div>
 </body>
