@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Dojo Survey</title>
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+	{% with messages = get_flashed_messages() %}
+		{% if messages %}
+			{% for message in messages %}
+				<p>{{message}}</p>
+			{% endfor%}
+		{% endif %}
+	{% endwith %}
+	<form name='students' action='/results' method='post'>
+		<p>Email:</p> <input type='text' name='email'>
+		<p>First Name:</p> <input type='text' name='first_name'>
+		<p>Last Name:</p> <input type='text' name='last_name'>
+		<p>Password:</p> <input type='text' name='password'>
+		<p>Password Confirmation:</p> <input type='text' name='confirm_password'>
+		<input type='submit' value='Submit'>
+	</form>
+	{% with messages = get_flashed_messages() %}
+		{% if not messages %}
+			<p>{{ session['success'] }}</p>
+		{% endif %}
+	{% endwith %}
+</body>
+</html>
