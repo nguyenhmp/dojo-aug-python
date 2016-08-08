@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Ninjas Appear!</title>
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+	{% if not color %}
+	<img src="{{ url_for('static', filename='img/leonardo.jpg') }}" alt='leonardo'>
+	<img src="{{ url_for('static', filename='img/michelangelo.jpg') }}" alt='michelangelo'>
+	<img src="{{ url_for('static', filename='img/raphael.jpg') }}" alt='raphael'>
+	<img src="{{ url_for('static', filename='img/donatello.jpg') }}" alt='donatello'>
+	{% endif %}
+	{% if color and color!='blue' and color !='orange' and color!='red' and color!='purple' %}
+	<img src="{{ url_for('static', filename='img/notapril.jpg') }}" alt='not april'>
+	{% endif %}
+	{% if color=='blue' %}
+	<img src="{{ url_for('static', filename='img/leonardo.jpg') }}" alt='leonardo'>
+	{% endif %}
+	{% if color=='orange' %}
+	<img src="{{ url_for('static', filename='img/michelangelo.jpg') }}" alt='michelangelo'>
+	{% endif %}
+	{% if color=='red' %}
+	<img src="{{ url_for('static', filename='img/raphael.jpg') }}" alt='raphael'>
+	{% endif %}
+	{% if color=='purple' %}
+	<img src="{{ url_for('static', filename='img/donatello.jpg') }}" alt='donatello'>
+	{% endif %}
+</body>
+</html>
