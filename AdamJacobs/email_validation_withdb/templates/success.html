@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Email Results</title>
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+	<h2 id='green'>{{session['success']}}</h2>
+	<h3>Email Addresses Entered</h3>
+	{% for value in all_emails %}
+	<p>{{value['email']}} {{value['created_at']}} {{value['updated_at']}}</p>
+	<form action='/delete/{{value['id']}}' method='POST'>
+	 <input type="submit" value="Delete">
+	</form>
+	{% endfor %}
+  	
+</body>
+</html>
