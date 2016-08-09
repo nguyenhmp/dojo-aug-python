@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>Subscribe Page</title>
+</head>
+<body>
+	<h1>Enter Your Email to Subscribe</h1>
+	{% with messages=get_flashed_messages() %}
+		{% if messages %}
+			{% for message in messages %}
+				<p>{{ message}}</p>
+			{% endfor %}
+		{% endif %}
+	{% endwith %}
+	<form action="/create" method="post">
+		<p>Email Address: <input type="text" name="email" /></p>
+		<input type="submit" value="Sign Up" />
+	</form>
+</body>
+</html>
