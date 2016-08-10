@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Login Successful</title>
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+	<h2>Coding Dojo Wall</h2>
+	{% for value in session['user'] %}
+	<p id='greeting'>Hello {{value['first_name']}}</p>
+	<form id='logout' action='/logout' method='Post'>
+		<button id='logout_button' type='submit'>Logout</button>
+	</form>
+	<hr>
+	<h3>Post a message</h3>
+	<form action='/message/{{value['id']}}' method='Post'>
+		<textarea id='message_text' name='message'></textarea>
+		<button id='message_button' type='submit'>Post a message</button>
+	</form>
+	{% endfor %}
+	{% for value in session['messages'] %}
+	<p>{{value['first_name']}} - {{value['created_at']}}</p>
+	<p class='messages'>{{value['message']}}</p>
+	<form action='/delete_message/{{value['messageid']}}' method='Post'>
+		<button id='delete_button' type='submit'>Delete</button>
+	</form>
+	<form id='comment' action='/comment/{{value['messageid']}}' method='Post'>
+		<textarea id='message_text' name='comment'></textarea>
+		<button id='comment_button' type='submit'>Post a Comment</button>
+	</form>
+		{% for data in session['comments'] %}
+			{% if data['comment_message_id'] == value['messageid'] %}
+				<p class='comments1'>{{data['first_name']}} - {{data['created_at']}}</p>
+				<p class='comments2'>{{data['comment']}}</p>
+			{% endif %}
+		{% endfor %}
+	{% endfor %}
+</body>
+</html>
