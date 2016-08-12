@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Ninja Gold</title>
+	{% load staticfiles %}
+	<link rel="stylesheet" type="text/css" href="{% static 'ninja_gold/css/style.css' %}">
+</head>
+<body>
+<p>Your Gold: {{ request.session.score }}</p>
+<div class='box'>
+	<p>Farm</p>
+	<p>(earns 10-20 gold)</p>
+	<form action="ninjagold/process_money/farm" method="post">
+	{% csrf_token %}
+	    <input type="submit" value="Find Gold!"/>
+	</form>
+</div>
+<div class='box'>
+	<p>Cave</p>
+	<p>(earns 5-10 gold)</p>
+	<form action="ninjagold/process_money/cave" method="post">
+	{% csrf_token %}
+	    <input type="submit" value="Find Gold!"/>
+	</form>
+</div>
+<div class='box'>
+	<p>House</p>
+	<p>(earns 2-5 gold)</p>
+	<form action="ninjagold/process_money/house" method="post">
+	{% csrf_token %}
+	    <input type="submit" value="Find Gold!"/>
+	</form>
+</div>
+<div class='box'>
+	<p>Casino</p>
+	<p>(earn or lose 50 gold)</p>
+	<form action="ninjagold/process_money/casino" method="post">
+	{% csrf_token %}
+	    <input type="submit" value="Find Gold!"/>
+	</form>
+</div>
+<p>Activites:</p>
+<div id='activities'>
+	{% for value in request.session.list %}
+		<p class='{{value.color}}'>{{value.text}}</p>
+	{% endfor %}
+</div>
+</body>
+</html>
