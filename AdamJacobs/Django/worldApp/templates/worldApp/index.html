@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    {%  for language in languages %}
+    <p>{{ language.country.name}} {{language.language}} {{language.percentage}}</p>
+    {% endfor %}
+    <br>
+    {%  for city in mexico %}
+    {{city.name}}
+    {% endfor %}
+    <br>
+    {% for language in lang2 %}
+    <p>{{language.country.name}} {{language.language}}</p>
+    {% endfor %}
+    {% for value in test %}
+    <li>{{value.name}}</li>
+    {% endfor %}
+  </body>
+</html>
