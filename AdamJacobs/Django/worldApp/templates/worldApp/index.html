@@ -16,8 +16,23 @@
     {% for language in lang2 %}
     <p>{{language.country.name}} {{language.language}}</p>
     {% endfor %}
-    {% for value in test %}
+    {% for value in popsurf %}
     <li>{{value.name}}</li>
+    {% endfor %}
+    <br>
+    {% for value in constmarch %}
+    <li>{{value.name}}</li>
+    {% endfor %}
+    <br>
+    {% for city in argentina %}
+    <li>{{city.country.name}} {{city.name}} {{city.district}} {{city.population}}</li>
+    {% endfor %}
+    {% for city in countcities %}
+    <li>{{city.name}} {{city.count}}</li>
+    {% endfor %}
+    <br>
+    {% for region in countregion %}
+    <li>{{region.region}} {{region.count}}</li>
     {% endfor %}
   </body>
 </html>
