@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Login/Register</title>
+</head>
+<body>
+	<h4> Log In </h4>
+	<form action='/login' name= "login" method='POST'>
+	<table> 
+		<tr>
+		<td> Email:</td> 
+		<td> <input type="text" name="email"></td>
+		</tr>
+		<td> Password: </td> 
+		<td><input type="password" name="password"></td>
+		<tr>
+			<td>
+			<input type="Submit" value="Log In">
+			</td>
+			</tr>
+		</table>
+	</form>
+
+	{% with messages = get_flashed_messages() %}
+		{% if messages %}
+			{% for message in messages %}
+			<p> {{message}}<p>
+			{% endfor %}
+		{% endif %}
+	{% endwith %} 
+
+
+	<h4> Register </h4>
+	<form action='/register' name="register" method='POST'>
+		<table><tr><td>First Name:</td> 
+				<td> <input type="text" name="first_name"></td>
+			</tr>
+			<tr>
+				<td>Last Name:</td> 
+				<td> <input type="text" name="last_name"></td>
+			</tr>
+			<tr>
+				<td>Email:</td> 
+				<td> <input type="text" name="email"></td>
+			</tr>
+			<tr>
+				<td>Password:</td> 
+				<td> <input type="password" name="password"></td>
+			</tr>
+			<tr>
+				<td>Confirm Password:</td> 
+				<td> <input type="password" name="cPassword"></td>
+			</tr>
+			<tr>
+			<td>
+			<input action='/register' type="Submit" value="Register" name="register">
+			</td>
+			</tr>
+			</table>
+	</form>
+	
+</body>
+</html>

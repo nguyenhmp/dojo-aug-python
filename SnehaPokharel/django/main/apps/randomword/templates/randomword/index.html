@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Random Word Generator</title>
+</head>
+<body>
+<h1>Random word (attempt) {{request.session.counter}} </h1>
+
+<form action="/users" method="POST"> {% csrf_token %}
+<input type="submit" value="Generate" name="generate">
+<input type="text" {% if request.session.counter != 0%} value="{{random_number}}"> {% endif %}
+</form>
+<form  {% if request.session.counter != 0 %}  action="/reset" method="POST"> {% csrf_token %}
+<input type="submit" value="RESET"> 
+	   {% endif %}
+</form>
+</body>
+</html>

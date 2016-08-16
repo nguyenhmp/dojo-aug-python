@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>FULL FRIENDS</title>
+</head>
+<style>
+#display_user h5 {
+	border: 1px solid black;
+	margin: 10px;
+	height: 170px;
+	width: 200px;
+	text-align: center;
+	display: inline-block;
+	vertical-align: top;
+}
+</style>
+
+<body>
+	<div id="display_user">
+	{% for items in display %}
+	<h5> <p>{{items['first_name']}}</p>
+		 <p>{{items['last_name']}}</p>
+		 <p>{{items['email']}}</p>
+		 <p>{{items['created_at']}}</p> 
+		 <form action= "/edit" method="Post">
+		 <input type="hidden" name="id" value="{{'id'}}">
+		 <input action="/edit" type="submit" name="edit" value="Edit User">
+		 </form>
+	</h5>
+	{% endfor %}
+	</div>
+
+	<form action="/friends" method="POST">
+		<table>
+			<tr>
+			<td>First Name: </td> 
+			<td><input type="text" name="first_name" value=""></td>
+			</tr>
+			<tr>
+			<td>Last Name: </td> 
+			<td><input type="text" name="last_name" value=""></td>
+			</tr>
+			<tr>
+			<td>Email: </td> 
+			<td><input type="text" name="email" value=""></td>
+			</tr>
+			</table>	
+		<p><input action="/friends" method="POST" type="submit" value="Create a User!"></p>
+	</form>
+	</div>
+</body>
+</html>

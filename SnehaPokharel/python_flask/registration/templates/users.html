@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Sensitive User Information</title>
+</head>
+<body>
+	<div>
+	<h3> Submitted Info</h3>
+	{% with messages = get_flashed_messages() %}
+		{% if messages %}
+			{% for message in messages %}
+			<p> {{message}}<p>
+			{% endfor %}
+		{% endif %}
+	{% endwith %} 
+
+	<p> Email: {{data['email']}} </p>
+	<p> First Name: {{data['firstname']}} </p>
+	<p> Last Name: {{data['lastname']}} </p>
+	<p> Password: {{data['password']}} </p>
+	</div>
+<form action = '/',>
+  <button>Go back!</button>
+</form>
+</body>
+</html>

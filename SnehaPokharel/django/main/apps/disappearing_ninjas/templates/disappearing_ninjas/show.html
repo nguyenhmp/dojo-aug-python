@@ -1,0 +1,28 @@
+<html>
+  <style> 
+    img {
+        height: 200px;
+        width: 170px;
+        display: inline-block;
+        vertical-align: top;
+     }
+  </style>
+  <head>
+     <title>Turtles</title>
+  </head>
+  <body>
+
+  {% load staticfiles %}
+  {% if color == "purple" %}
+  <img src="{% static 'disappearing_ninjas/images/donatello.jpg' %}">
+  {% elif color == "blue" %}
+  <img src="{% static 'disappearing_ninjas/images/leonardo.jpg' %}">
+  {% elif color == "orange" %}
+  <img src="{% static 'disappearing_ninjas/images/michelangelo.jpg' %}">
+  {% elif color == "red" %}
+  <img id ="red" src="{% static 'disappearing_ninjas/images/raphael.jpg' %}">
+  {% else %}
+  <img id ="red" src="{% static 'disappearing_ninjas/images/notapril.jpg' %}">
+  {% endif %}
+  </body> 
+</html>
