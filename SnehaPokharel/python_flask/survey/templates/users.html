@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+	<div>
+	{% with messages = get_flashed_messages() %}
+		{% if messages %}
+			{% for message in messages %}
+			<p> {{message}}<p>
+			{% endfor %}
+		{% endif %}
+	{% endwith %} 
+	<h3> Submitted Info</h3>
+	<p> Name: {{data['name']}}
+	<br>
+	<p> Location: {{data['location']}} </p>
+	<br>
+	<p> Favorite Language: {{data['language']}} </p>
+	<br>
+	<p> Comment: {{data['description']}}
+	 <p>
+	<br>
+	</div>
+<form action = '/',>
+  <button>Go back!</button>
+</form>
+</body>
+</html>

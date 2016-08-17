@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Edit User!</title>
+</head>
+<body>
+	<div id="display_user">
+		{% for items in display %}
+		<h5> {% if display['id'] == user_id %}
+			<p>{{items['first_name']}}</p>
+			<p>{{items['last_name']}}</p>
+			<p>{{items['email']}}</p>
+		 	<p>{{items['created_at']}}</p>
+		 <input action="/update" type="submit" name="update" value="Update User">
+		 <input action="/delete" type="submit" name="delete" value="Delete User">
+		 </h5> 
+		 {% endif %}
+		 {% endfor %}
+		
+</body>
+</html>

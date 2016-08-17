@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<style> /*<!--being lazy and styling it in the html file -->*/
+ *{
+ 	margin: 0px;
+ 	padding: 0px;
+ }
+
+ #form {
+ 	border: 1px solid black;
+ 	position: absolute; 
+  	width: 400px;
+  	margin-top: 100px;
+  	margin-left: 400px;
+}
+
+ #comment {
+ 	height: 75px;
+ 	width: 200px;
+ }
+</style>
+
+	<head>
+	  <meta charset="UTF-8">
+	  <title>Dojo Survey</title>
+	  <link rel="stylesheet" href="static/styles.css"> <!-- different for django -->
+	</head>
+	<body>
+		<div id="form"> 
+	        <form class="" action="/result" method="post"> {% csrf_token %}
+		        <table>
+		        <td>
+		        <tr>Your Name: </tr> <tr><input type = 'text' name = 'name'></tr>
+		        </td>
+		        <br>
+		        <br>
+		        <td>
+		        <tr> Dojo Location:</tr>
+		        <tr><select class="" name="location">
+		          <option value="San Jose">San Jose</option>
+		          <option value="Washington DC">Washington DC</option>
+		          <option value="Seattle">Seattle</option>
+		          <option value="Chicago">Chicago</option>
+		          <option value="Dallas">Dallas</option>
+		         </select>
+		         </tr>
+		        </td>
+		        <br>
+		        <br>
+		        <td>
+		        <tr><p>Favorite Language:</p></tr>
+		        <tr><select name="language" >
+		          <option value="Javascript">Javascript</option>
+		          <option value="Python">Python</option>
+		          <option value="Ruby">Ruby</option>
+		          <option value="PHP">PHP</option>
+		        </select>
+		        </tr>
+		        </td>
+		        <br>
+		        <br>
+		        <td>
+		        <tr><p>Comments (optional):</p></tr>
+		        <tr><input id="comment" type='textarea' name='description'></tr>
+		        </td>
+		        </table>
+		        <input type = 'submit' value = 'Submit'>
+	    	</form>
+	    </div>
+	</body>
+</html>

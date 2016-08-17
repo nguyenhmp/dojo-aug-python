@@ -1,0 +1,15 @@
+* {
+	margin: 4px;
+	padding: 5px;
+	background-color: white;
+	color:black;
+}
+
+table{
+	background-color: white;
+	margin: 5px;
+}
+#comment {
+	height: 250px;
+	width: 400px;
+}

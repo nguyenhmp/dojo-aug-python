@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Ninja Gold</title> <!-- Embedded CSS -->
+		<style>
+		*{
+			margin: 0px;
+			padding: 0px;	
+	   	}
+	   	#container {
+	   		margin: auto;
+	   		display: table;
+	   	}
+	   	h4, #counter {
+	   		display: inline-block;
+	   		vertical-align: top;
+	   		margin-top: 15px;
+	   	}
+	   	#sumgold {
+	   		height: 15px;
+	   		width: 100px;
+	   	}
+
+		li {
+	   		list-style: none; 
+	   		color: green;
+	   	}
+
+	   	#farm, #cave, #house, #casino {
+	   		border: 1px solid black;
+	   		display: inline-block;
+	   		vertical-align: top; 
+	   		margin: 5px; 
+	   		height: 150px;
+	   		width: 150px;
+	   		font-size: 16px;
+	   		text-align: center;
+	   	}
+	   	#log{
+	   		height: 100px;
+	   		width: 690px;
+	   	}
+
+	   	.green{
+	   		color:green;
+	   	}
+
+	   	.red{
+	   		color:red;
+	   	}
+
+	</style> <!-- end of CSS styling  -->
+	</head>
+	<body>
+		<div id= "container">
+			<h4>Your Gold: </h4> 
+			<form  id= "counter" action="/" method="post"> {% csrf_token %} 
+			<input id= "sumgold" type="text" name="counter" 
+			 value = "{{request.session.gold}}"/> 
+			</form>
+		<br>
+		<br>
+			<div id="farm">
+				<p> <b>Farm</b> <br><br>
+				(earns 10-20 gold) </p><br><br>
+				<form action="/farm" method="post"> {% csrf_token %} 
+				 <!-- <input type="hidden" name="building" value="farm" /> -->
+				 <input type="submit" value="Find Gold!"/>
+				</form>
+			</div>
+			<div id="cave">
+				<p><b> Cave </b> <br><br>
+				(earns 5-10 gold) </p><br><br>
+				<form action="/cave" method="post"> {% csrf_token %} 
+				 <!-- <input type="hidden" name="building" value="cave" /> -->
+				 <input type="submit" value="Find Gold!"/>
+				</form>
+			</div>
+			<div id="house">
+				<p> <b> House </b> <br><br>
+				(earns 2-5 gold) </p><br><br>
+				<form action="/house" method="post"> {% csrf_token %}
+				 <!-- <input type="hidden" name="building" value="house" /> -->
+				 <input type="submit" value="Find Gold!"/>
+				</form>
+			</div>
+			<div id="casino">
+				<p><b> Casino </b><br><br>
+				(earns/takes 0-50 gold) </p><br><br>
+				<form action="/casino" method="post"> {% csrf_token %}
+				<!--  <input type="hidden" name="building" value="casino" /> -->
+				 <input type="submit" value="Find Gold!"/>
+				</form>
+			</div>
+			 <div>
+			 	<p>ACTIVITIES!</p>
+			 	<ul> {% for value in request.session.list %} <!-- to access items in the list - you need to loop through the list to get values	 -->	
+					<li class="{{value.color}}">
+					{{value.text}}
+					</li>	
+				{% endfor %} 
+				</ul>	
+			</div>
+				<form action="/reset" method="get"> {% csrf_token %}
+				<input id="reset" type="submit" value="Restart!"/>
+				</form>
+			</div>
+		</div>	
+	</body>
+</html>

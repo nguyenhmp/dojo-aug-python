@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Submitted Info</title>
+  <link rel="stylesheet" href="static/styles.css">
+</head>
+<body>
+  <div id="submission">
+    <p> Thank you for submitting this form! You have submitted  submitting your info {{request.session.counter}} times! </p>
+
+
+    <div id="submitted">
+        <p>Name: {{name}} </p> 
+        <p>Dojo Location: {{location}}</p>
+        <p>Favorite Language: {{language}}</p>
+        <p>Comments (optional): {{comment}}</p>
+        <form action="/" method="Post">
+        <input type = 'submit' value = 'Go Back!'> {% csrf_token %}
+        </form>
+        <form action="/reset" method="post"> {% csrf_token %}
+        <input type="submit" value="Reset!">
+        </form>
+    </div>
+</body>
+</html>

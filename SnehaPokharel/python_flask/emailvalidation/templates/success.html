@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Email Validation</title>
+</head>
+<body>
+
+<h1>The email you entered {{ session['result'] }} is a VALID email address! Thank you! </h1>
+<!-- with all the data we can then construct a more structured output -->
+
+  <p>Email Addresses Entered: </p> {% for email in all_email: %} 
+   {{ email['email_add']}} {{ email['created_on']}} {{ email['updated_on']}} </p>
+   {% endfor %}
+
+<form action="/success" method="post" name="delete"> 
+<input type="submit" value="Delete Record!">
+</form>
+</body>
+</html>

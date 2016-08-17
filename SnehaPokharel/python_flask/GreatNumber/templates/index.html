@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Great Number's Game</title>
+		<style>
+		*{
+			margin: 0px;
+			padding: 10px;	
+	   	}
+	</style>
+	</head>
+
+	<body>
+		<h1>Welcome to the Great Number Game!</h1>
+		<h2> I am thinking of a number between 1 and 100</h2>
+		<h3>Take a guess!</h3>
+		{% if session['result'] != "match" %} <!-- the submit button will show up when the result is not match -->
+		<form action = '/process' method = 'Post'>
+			<input name="choice" type="Text"  value='' placeholder="Number">
+			<input type="submit" value="Submit">
+		</form>
+		 {% endif %}
+		
+		{% if session['result'] == "match" %}
+			<div id= "match">
+				There was a match! 
+				<form action = '/reset' method = 'GET'>
+				<input type="submit" value="Play Again!">
+				</form>
+			</div>
+			 	<style> #match {
+		   		border: 5px solid black;
+		   		background-color: green;
+		   		text-align: center;
+		   		height: 200px;
+		   		color: white;
+		   		font-family: bold;
+		   		width: 300px;
+	   			}	
+	   			</style>
+			{% elif session['result'] == "low" %}
+			<div><p>Too low</p></div>
+			<style>
+				p{border: 5px solid black;
+		   		background-color: red;
+		   		width: 300px;
+		   		text-align: center;
+		   		height: 200px;
+		   		color: white;
+		   		font-family: bold;
+		   		}
+	   		</style>
+			{% elif session['result'] == "high" %}
+			 	<p>Too High </p>
+			 	<style>	p{
+		   		border: 5px solid black;
+		   		background-color: red;
+		   		width: 300px;
+		   		text-align: center;
+		   		height: 200px;
+		   		color: white;
+		   		font-family: bold;
+		   		}
+	   		</style>
+			 {% else %}
+			 <p></p>
+			{% endif %}
+	</body>
+</html>

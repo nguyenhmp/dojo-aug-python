@@ -1,0 +1,22 @@
+<html>
+  <style> 
+     img {
+        height: 200px;
+        width: 170px;
+        display: inline-block;
+        vertical-align: top;
+     }
+  </style>
+
+  <head>
+     <title>Turtles</title>
+  </head>
+  <body>
+  {% load staticfiles %}
+ 
+  <img src="{% static 'disappearing_ninjas/images/donatello.jpg' %}">
+  <img src="{% static 'disappearing_ninjas/images/leonardo.jpg' %}">
+  <img src="{% static 'disappearing_ninjas/images/michelangelo.jpg' %}">
+  <img src="{% static 'disappearing_ninjas/images/raphael.jpg' %}">
+  </body> 
+</html>
