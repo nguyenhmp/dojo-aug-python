@@ -1,0 +1,11 @@
+<h3>Are you sure you want to delete the following course?</h3>
+{% for user in user%}
+<p>Name: {{user.name}}</p>
+<p>Description: {{user.description}}</p>
+<p><a href="{url 'index'}}">No</a></p>
+<form action="{%url 'delete' id=user.id%}" method='post'>
+{% csrf_token %}
+<input type='submit' value='Yes!  I want to delete this'>
+</form>
+{% endfor %}
+

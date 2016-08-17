@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Index HTML Yay</title>
+</head>
+<body>
+<p>The current date and time:</p>
+{% load tz %}
+<p>{{value|timezone:"America/New_York"}}</p>
+</body>
+</html>

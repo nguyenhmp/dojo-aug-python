@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<form action="{% url 'frankencourse' %}" method='POST'>
+		{% csrf_token %}
+			<select name='course'>
+				{% for course in query %}
+				<option value='{{course.id}}'>{{course.name}}</option>
+				{% endfor %}
+			</select>
+			<select name='user'>
+				{% for user in usercourses %}
+				<option value='{{user.id}}'>{{user.first_name}}</option>
+				{% endfor %}
+			</select>
+			<input type='submit' value='Add'>
+	</form>
+	<table>
+		<tr>
+			<th>Course</th>
+			<th>Title</th>
+			<th>Users</th>
+			<th>Actions</th>
+		</tr>
+	{% for course in query %}
+	<tr>
+		<td>{{course.id}}</td>
+		<td>{{course.name}}</td>
+		<td>{{course.usercount}}</td>
+		<td><a href="{%url 'remove' id=course.id %}">Remove</a></td>
+	<tr>
+	{% endfor %}
+	</table>
+	<p><a href='{% url 'courses' %}'>Go Home</a></p>
+</body>
+</html>
