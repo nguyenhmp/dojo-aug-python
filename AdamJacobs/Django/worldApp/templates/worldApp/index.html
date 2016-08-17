@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    {%  for language in languages %}
+    <p>{{ language.country.name}} {{language.language}} {{language.percentage}}</p>
+    {% endfor %}
+    <br>
+    {%  for city in mexico %}
+    {{city.name}}
+    {% endfor %}
+    <br>
+    {% for language in lang2 %}
+    <p>{{language.country.name}} {{language.language}}</p>
+    {% endfor %}
+    {% for value in popsurf %}
+    <li>{{value.name}}</li>
+    {% endfor %}
+    <br>
+    {% for value in constmarch %}
+    <li>{{value.name}}</li>
+    {% endfor %}
+    <br>
+    {% for city in argentina %}
+    <li>{{city.country.name}} {{city.name}} {{city.district}} {{city.population}}</li>
+    {% endfor %}
+    {% for city in countcities %}
+    <li>{{city.name}} {{city.count}}</li>
+    {% endfor %}
+    <br>
+    {% for region in countregion %}
+    <li>{{region.region}} {{region.count}}</li>
+    {% endfor %}
+  </body>
+</html>

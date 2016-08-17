@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Results</title>
+</head>
+<body>
+<div id='infobox'>
+	<p>Thanks for submitting this form!  You have submitted this form {{ request.session.run }} times now.</p>
+</div>
+<div id='submission'>
+	<h4>Submitted Information</h4>
+	<p>Name: {{ request.session.name }}</p>
+	<p>Dojo Location: {{ request.session.location }}</p>
+	<p>Favorite Language: {{ request.session.language }}</p>
+	<p>Comment: {{ request.session.comment }}</p>
+</div>
+<p><a href='/survey'>Go Back</a></p>
+</body>
+</html>

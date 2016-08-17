@@ -1,0 +1,27 @@
+body{
+	background-color:blue;
+	font-family:sans-serif;
+}
+
+#main{
+	margin:0px auto;
+	width:400px;
+	text-align:center;
+	color:white;
+}
+
+#red{
+	padding:30px 5px 30px 5px;
+	background-color:red;
+	width:100px;
+	margin-left:146px;
+	border:1px solid white;
+}
+
+#green{
+	padding:30px 5px 30px 5px;
+	background-color:green;
+	width:100px;
+	margin-left:146px;
+	border:1px solid white;
+}

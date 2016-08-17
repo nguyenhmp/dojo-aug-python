@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Disappearing Ninjas</title>
+</head>
+<body>
+{% load staticfiles %}
+{% if colors == "blue" %}
+	<img src='{% static 'disappearing_ninjas/img/leonardo.jpg' %}' alt='leonardo'>
+{% endif %}
+{% if colors == "red" %}
+	<img src='{% static 'disappearing_ninjas/img/raphael.jpg' %}' alt='raphael'>
+{% endif %}
+{% if colors == "orange" %}
+	<img src='{% static 'disappearing_ninjas/img/michelangelo.jpg' %}' alt='michelangelo'>
+{% endif %}
+{% if colors == "purple" %}
+	<img src='{% static 'disappearing_ninjas/img/donatello.jpg' %}' alt='donatello'>
+{% endif %}
+{% if not colors %}
+	<img src='{% static 'disappearing_ninjas/img/donatello.jpg' %}' alt='donatello'>
+	<img src='{% static 'disappearing_ninjas/img/raphael.jpg' %}' alt='raphael'>
+	<img src='{% static 'disappearing_ninjas/img/michelangelo.jpg' %}' alt='michelangelo'>
+	<img src='{% static 'disappearing_ninjas/img/leonardo.jpg' %}' alt='leonardo'>
+{% endif %}
+{% if colors and colors != "blue" and colors != "purple" and colors != "orange" and colors != "red" %}
+	<img src='{% static 'disappearing_ninjas/img/notapril.jpg' %}' alt='april'>
+{% endif %}
+</body>
+</html>

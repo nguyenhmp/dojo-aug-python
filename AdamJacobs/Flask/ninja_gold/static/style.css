@@ -1,0 +1,35 @@
+body{
+	background-color:blue;
+	font-family:sans-serif;
+	color:white;
+}
+
+.box{
+	width:100px;
+	display:inline-block;
+	border:1px solid white;
+	padding:10px 20px 10px 20px;
+}
+
+#activities{
+	width:500px;
+	height:200px;
+	overflow:scroll;
+}
+
+#activities ul{
+	background-color:white;
+	color:black;
+}
+
+#activities li{
+	list-style:none;
+}
+
+li.green{
+	color:green;
+}
+
+li.red{
+	color:red;
+}

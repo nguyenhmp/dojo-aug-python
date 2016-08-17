@@ -1,0 +1,15 @@
+#red{
+	padding:10px;
+	color:white;
+	background-color:red;
+	border:1px solid black;
+	width:500px;
+}
+
+#green{
+	padding:10px;
+	color:white;
+	background-color:green;
+	border:1px solid black;
+	width:500px;
+}
