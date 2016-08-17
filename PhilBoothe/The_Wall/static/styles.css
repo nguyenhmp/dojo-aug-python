@@ -1,0 +1,58 @@
+.container {
+	background: linear-gradient(#EEE, #f8f8f8, #f8f8f8, #EEE);
+}
+#header {
+	background: linear-gradient(#333, #666);
+	color: #EEE;
+	border-bottom: 2px solid #BBB;
+	margin-bottom: 4rem;
+}
+#header h2 {
+	margin-bottom: 0;
+}
+#header h5 {
+	margin: 0.7rem 0 0 0;
+	text-align: right;
+}
+#header a.button {
+	background: #BBB;
+	margin-top: 0.5rem;
+}
+#log-in, #register {
+	margin: 0 0 4rem 3rem;
+}
+ul li {
+	color: #BD3815;
+	font-weight: 600;
+	list-style: none;
+	margin-left: 3rem;
+}
+.alert {
+	color: darkblue;
+	font-weight: 600
+}
+#post-message {
+	margin-bottom: 6rem;
+}
+textarea {
+	resize: none;
+}
+form {
+	margin-bottom: 0;
+}
+.message {
+	margin-bottom: 2rem;
+}
+input.delete {
+	color: #FFF;
+	background: #BD3815;
+	border-color: #BD3815;
+	padding: 0px 6px;
+	height: 2rem;
+	line-height: 0px
+}
+input.delete:hover, input.delete:focus {
+	color: #FFF;
+	background: #A33012;
+	border-color: #A33012;
+}

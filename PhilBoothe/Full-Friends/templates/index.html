@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}" />
+	<title>All My Friends</title>
+</head>
+<body>
+	<h1>Keep Track of All Your Friends!</h1>
+	{% with messages=get_flashed_messages() %}
+		{% if messages %}
+			{% for message in messages %}
+				<h4>{{ message}}</h4>
+			{% endfor %}
+		{% endif %}
+	{% endwith %}
+	<h3>Add New Friend</h3>
+	<form action="/friends" method="post">
+		<table>
+			<tbody>
+				<tr>
+					<th>First Name:</th>
+					<td><input type="text" name="first_name" /></td>
+				</tr>
+				<tr>
+					<th>Last Name:</th>
+					<td><input type="text" name="last_name" /></td>
+				</tr>
+				<tr>
+					<th>Email:</th>
+					<td><input type="email" name="email" /></td>
+				</tr>
+				<tr>
+					<th></th>
+					<th><input type="submit" value="Submit" /></th>
+				</tr>
+			</tbody>
+		</table>
+	</form>
+	<h3>Friend List</h3>
+	<table class="friendlist">
+		<thead>
+			<tr>
+				<th>Friend ID</th>
+				<th>Full Name</th>
+				<th>Email Address</th>
+				<th>Date Added</th>
+				<th></th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for friend in friend_list %}
+			<tr>
+				<td>{{ friend['id'] }}</td>
+				<td>{{ friend['first_name'] }} {{ friend['last_name'] }}</td>
+				<td>{{ friend['email'] }}</td>
+				<td>{{ friend['created_at'] }}</td>
+				<td>
+					<form action="/friends/{{ friend['id'] }}/edit">
+						<input type="submit" value="Edit" />
+					</form>
+				</td>
+				<td>
+					<form action="/friends/{{ friend['id'] }}/delete" method="post">
+						<input type="submit" value="Unfriend" />
+					</form>
+				</td>
+			</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+</body>
+</html>

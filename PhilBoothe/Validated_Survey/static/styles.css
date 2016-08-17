@@ -1,0 +1,60 @@
+* {
+	margin: 0px;
+	padding: 0px;
+}
+h2, h4, legend {
+	font-family: sans-serif;
+}
+/* index page */
+form {
+	display: inline-block;
+	width: 300px;
+	margin: 40px;
+}
+fieldset {
+	padding: 12px;
+}
+fieldset legend {
+	text-align: center;
+	font-size: 22px;
+	font-weight: bold;
+}
+p {
+	margin: 6px 0px;
+}
+select {
+	margin-left: 40px;
+}
+textarea {
+	width: 240px;
+	height: 48px;
+	margin-top: 4px;
+}
+input[type="submit"] {
+	margin: 6px 0px 6px 200px;
+}
+/* results page */
+h2, h4 {
+	margin: 12px 0px 0px 8px;
+}
+p.confirmation {
+	margin: 12px 0px 0px 24px;
+	font-style: italic;
+	color: green;
+}
+p.error {
+	margin: 12px 0px 0px 24px;
+	font-style: italic;
+	color: red;
+}
+table {
+	margin-top: 12px
+}
+th, td {
+	text-align: left;
+	vertical-align: top;
+	padding: 8px;
+}
+td {
+	width: 300px;
+}

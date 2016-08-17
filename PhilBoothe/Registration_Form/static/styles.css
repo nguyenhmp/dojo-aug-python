@@ -1,0 +1,36 @@
+* {
+	margin: 0px;
+	padding: 0px;
+}
+h1, h3 {
+	font-family: sans-serif;
+	margin: 24px 0px 0px 24px;
+}
+form {
+	display: inline-block;
+	text-align: right;
+	width: 320px;
+	margin: 24px 0px 0px 12px;
+}
+fieldset {
+	padding: 12px;
+}
+fieldset legend {
+	font-size: 22px;
+	font-weight: bold;
+}
+p {
+	margin: 6px 0px;
+}
+input[type="submit"] {
+	margin: 6px 0px 6px 200px;
+}
+.confirmation {
+	font-style: italic;
+	color: green;
+}
+.error {
+	margin: 12px 0px 0px 24px;
+	font-style: italic;
+	color: red;
+}

@@ -1,0 +1,29 @@
+h1, h3 {
+	font-family: sans-serif;
+}
+h3 {
+	color: darkred;
+	text-decoration: underline;
+}
+h4 {
+	display: inline-block;
+	margin: 0px 12px;
+	padding: 6px;
+	border: 1px solid darkblue;
+	background: lightblue;
+}
+th, td {
+	padding: 4px 12px;
+}
+th input[type="submit"] {
+	margin-left: 50%;
+}
+table.friendlist {
+	border-collapse: collapse;
+}
+.friendlist th, .friendlist td {
+	border-bottom: 1px solid lightgrey;
+}
+a {
+	color: grey;
+}

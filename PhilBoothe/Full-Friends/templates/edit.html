@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}" />
+	<title>Edit Friend</title>
+</head>
+<body>
+	{% for friend in friend_list %}
+	<h1>Edit {{ friend['first_name'] }} {{ friend['last_name'] }}</h1>
+	<h3>Current Info</h3>
+	<table class="friendlist">
+		<thead>
+			<tr>
+				<th>Friend ID</th>
+				<th>First Name</th>
+				<th>Last Name</th>
+				<th>Email Address</th>
+				<th>Date Added</th>
+				<th>Date Modified</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>{{ friend['id'] }}</td>
+				<td>{{ friend['first_name'] }}</td>
+				<td>{{ friend['last_name'] }}</td>
+				<td>{{ friend['email'] }}</td>
+				<td>{{ friend['created_at'] }}</td>
+				<td>{{ friend['updated_at'] }}</td>
+			</tr>
+		</tbody>
+	</table>
+	<h3>Update Info</h3>
+	<form action="/friends/{{ friend['id'] }}" method="post">
+		<table>
+			<tbody>
+				<tr>
+					<th>First Name:</th>
+					<td><input type="text" name="first_name" /></td>
+				</tr>
+				<tr>
+					<th>Last Name:</th>
+					<td><input type="text" name="last_name" /></td>
+				</tr>
+				<tr>
+					<th>Email:</th>
+					<td><input type="email" name="email" /></td>
+				</tr>
+				<tr>
+					<th></th>
+					<th><input type="submit" value="Submit" /></th>
+				</tr>
+			</tbody>
+		</table>
+	</form>
+	{% endfor %}
+	<p><a href="/">Return to Friends</a></p>
+</body>
+</html>

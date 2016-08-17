@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>OurWall | View The Wall</title>
+	<link href='https://fonts.googleapis.com/css?family=Raleway:400,300,600' rel='stylesheet' type='text/css' />
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='normalize.css') }}"/>
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='skeleton.css') }}" />
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}" />
+</head>
+<body>
+	<div class="container">
+		<div id="header" class="row">
+			<div class="offset-by-one column seven columns"><h2>OurWall</h2></div>
+			<div class="two columns"><h5><strong>{{ session['first_name'] }}</strong></h5></div>
+			<div class="two columns"><a class="button" href="/">Log Out</a></div>
+		</div>
+		{% with alerts = get_flashed_messages() %}
+			{% if alerts %}
+				{% for alert in alerts %}
+					<p class="alert">{{ alert }}</p>
+				{% endfor %}
+			{% endif %}
+		{% endwith %}
+		<div id="post-message">
+			<h4>Post a message</h4>
+			<form action="/addmessage/{{ session['id'] }}" method="post">
+				<textarea class="u-full-width" name="message"></textarea>
+				<input class="button-primary u-pull-right" type="submit" value="Post New Message" />
+			</form>
+		</div>
+		{% for message in wall_data %}
+		<div class="message">
+			<div class="row">
+				<p class="one-third column"><strong>{{ message['first_name'] }} {{ message['last_name'] }} - {{ message['message_time'] }}</strong></p>
+				{% if message['user_id'] == session['id'] %}
+					<form action="/deletemessage/{{ message['message_id'] }}" method="post">
+						<input class="delete" type="submit" value="Delete message">
+					</form>
+				{% endif %}
+			</div>
+			<div class="row">
+				<p class="eleven columns">{{ message['message'] }}</p>
+			</div>
+			{% for comment in comment_data %}
+				{% if comment['message_id'] == message['message_id'] %}
+					<div class="row">
+						<p class="offset-by-one column one-third"><strong>{{ comment['first_name'] }} {{ comment['last_name'] }} - {{ comment['comment_time'] }}</strong></p>
+						{% if comment['user_id'] == session['id'] %}
+							<form action="/deletecomment/{{ comment['comment_id'] }}" method="post">
+								<input class="delete" type="submit" value="Delete comment">
+							</form>
+						{% endif %}
+					</div>
+					<div class="row">
+						<p class="offset-by-one column ten columns">{{ comment['comment'] }}</p>
+					</div>
+				{% endif %}
+			{% endfor %}
+			<div class="row">
+				<div class="offset-by-one column ten columns">
+					<form action="/addcomment/{{ message['message_id'] }}/{{ session['id'] }}" method="post">
+						<textarea class="u-full-width" name="comment"></textarea>
+						<input class="button-primary u-pull-right" type="submit" value="Post comment" />
+					</form>
+				</div>
+			</div>
+		</div>
+		{% endfor %}
+	</div>
+</body>
+</html>
