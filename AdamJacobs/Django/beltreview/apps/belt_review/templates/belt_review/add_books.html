@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Add Book and Review</title>
+</head>
+<body>
+	<h3>Add a New Book Title and a Review:</h3>
+	<form action='{% url 'create' %}' method='post'>
+	{% csrf_token %}
+		<p><strong>Book Title</strong></p><input type='text' name='book_name'>
+		<p><strong>Author</strong></p><br>
+		<p>Choose from the list:</p><select name='existing_author'>
+			{% for author in authors %}
+			<option value='{{author.author}}'>{{author.author}}</option>
+			{% endfor %}
+		</select>
+		<p>Or add a new author: <input type='text' name='manual_author'></p>
+		<p>Review: <input type='text' name='review'></p>
+		<p>Rating: </p><select name='rating'>
+			<option value='1'>1</option>
+			<option value='2'>2</option>
+			<option value='3'>3</option>
+			<option value='4'>4</option>
+			<option value='5'>5</option>
+		</select>
+		<input type='submit' value='submit'>
+	</form>
+	<h3>Reviews:</h3>
+	{% for review in reviews %}
+	{% if review.user.id == user.id %}
+		<hr>
+		<p><a href='{% url 'bookpage' id=review.book.id %}'>{{review.book.title}}</a></p>
+		<p>Rating: {{review.rating}}</p>
+		<p><a href='{% url 'userpage' id=user.id %}'>{{user.first_name}}</a> says {{review.review}}</p>
+		<p>Posted on {{review.created_at}}</p>
+		<br>
+		{% endif %}
+	{% endfor %}
+</body>
+</html>

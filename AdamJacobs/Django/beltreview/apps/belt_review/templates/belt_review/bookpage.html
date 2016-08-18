@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Bookpage</title>
+</head>
+<body>
+	<p>{{book.title}}</p>
+	<p>{{book.author}}</p>
+	<p>Reviews: </p>
+	{% for review in reviews%}
+		{% if review.book.id == book.id%}
+		<hr>
+		<p>Rating: {{review.rating}}</p>
+		<p>{{review.user.first_name}} says {{review.review}}</p>
+		<p>{{review.created_at}}</p>
+			{% if user.id == review.user.id %}
+			<p><a href='{% url 'destroy' id=review.id %}'>Delete</a></p>
+			{% endif %}
+		<br>
+		{% endif %}
+	{% endfor %}
+	<form action='{% url 'create_book_review' id=book.id %}' method='post'>
+	{% csrf_token %}
+		<p>Review: <textarea name='review'></textarea></p>
+		<p>Rating: </p><select name='rating'>
+			<option value='1'>1</option>
+			<option value='2'>2</option>
+			<option value='3'>3</option>
+			<option value='4'>4</option>
+			<option value='5'>5</option>
+		</select>
+		<input type='submit' value='Submit Review'>
+	</form>
+	<p><a href='{% url 'books' %}'>Go back</a></p>
+</body>
+</html>

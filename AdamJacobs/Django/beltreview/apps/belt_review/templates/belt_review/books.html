@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Yo Book Page</title>
+</head>
+<body>
+	<h1>Welcome, {{user.first_name}}!</h1>
+	<p><a href='{%url 'add_book' %}'>Add Book and Review</a></p>
+	<p><a href='{%url 'logout' %}'>Logout</a></p>
+	<p>Recent Book Reviews:</p>
+	{% for review in reviews %}
+	{% if review.user.id == user.id %}
+		<p><a href='{% url 'bookpage' id=review.book.id %}'>{{review.book.title}}</a></p>
+		<p>Rating: {{review.rating}}</p>
+		<p><a href='{% url 'userpage' id=user.id %}'>{{user.first_name}}</a> says {{review.review}} </p>
+		<p>Posted on {{review.created_at}}</p>
+		<br>
+		{% endif %}
+	{% endfor %}
+	{% for book in books %}
+		<p><a href='{% url 'bookpage' id=book.id %}'>{{book.title}}</a></p>
+	{% endfor %}
+</body>
+</html>
