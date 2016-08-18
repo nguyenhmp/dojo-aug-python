@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>User Page</title>
+</head>
+<body>
+	<p>User Alias: {{user.first_name}}</p>
+	<p>Name: {{user.first_name}} {{user.last_name}}</p>
+	<p>Email: {{user.email}}</p>
+	{% for reviewer in reviewcount %}
+		{% if reviewer.id == user.id %}
+	<p>Total Reviews: {{reviewer.reviewcount}}</p>
+		{% endif %}
+	{% endfor %}
+	<br>
+	<p>Posted reviews on the following books:</p>
+	{% for review in reviews %}
+		{% if review.user.id == user.id %}
+		<p><a href='{% url 'bookpage' id=review.book.id %}'>{{review.book.title}}</a></p>
+		{% endif %}
+	{% endfor %}
+	<p><a href='{% url 'books' %}'>Go back</a></p>
+</body>
+</html>
